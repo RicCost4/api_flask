@@ -1,7 +1,8 @@
 import pandas as pd # type: ignore
 from pathlib import Path
 
-def migration_003(arquivo=None):
+
+def migration_003():
     """Cria o arquivo pedidos.csv (se não existir)"""
     caminho = Path("data/pedidos.csv")
     if not caminho.exists():

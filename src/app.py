@@ -12,10 +12,7 @@ from rotas.relatorios_routes import relatorios_bp
 from metodos.swagger_init import configurar_swagger
 from metodos.versao_projeto import obter_versao_atual_projeto
 
-from services.db_clientes import inicializar_csv
-from services.db_pedidos import inicializar_pedidos
-from services.db_usuarios import inicializar_usuarios
-from services.db_tokens import inicializar_tokens
+from migration import inicializar_csv
 
 
 load_dotenv()
@@ -23,16 +20,20 @@ app = Flask(__name__)
 app.secret_key = os.getenv("APP_SECRET_KEY", "default-secret")
 
 
+# @app.before_serving
+def setup_inicial():
+  print("Inicializando dados do sistema...")
+  inicializar_csv()
+  print("Inicialização concluída!")
+
+
+setup_inicial()
 # Inicializa o Swagger
 configurar_swagger(app)
 
 
-@app.before_request
-def setup():
-    inicializar_csv()
-    inicializar_pedidos()
-    inicializar_usuarios()
-    inicializar_tokens()
+# @app.before_request
+# def setup():
 
 
 @app.route("/")

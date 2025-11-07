@@ -2,6 +2,7 @@ import pandas as pd # type: ignore
 from fpdf import FPDF # type: ignore
 from services.db_pedidos import listar_pedidos_com_clientes
 
+
 def gerar_relatorio_csv(caminho="data/relatorio_pedidos.csv"):
     dados = listar_pedidos_com_clientes()
     if not dados:
@@ -9,6 +10,7 @@ def gerar_relatorio_csv(caminho="data/relatorio_pedidos.csv"):
     df = pd.DataFrame(dados)
     df.to_csv(caminho, index=False)
     return caminho
+
 
 def gerar_relatorio_pdf(caminho="data/relatorio_pedidos.pdf"):
     dados = listar_pedidos_com_clientes()

@@ -9,7 +9,8 @@ def inicializar_tokens():
     if not ARQUIVO.exists():
         df = pd.DataFrame(columns=["token", "username", "tipo", "expira_em", "revogado"])
         df.to_csv(ARQUIVO, index=False)
-        print("🔑 Arquivo de tokens criado.")
+        print("Arquivo de tokens criado.")
+
 
 def salvar_token(token: str, username: str, tipo: str, expira_em: int):
     df = ler_todos()
@@ -23,13 +24,16 @@ def salvar_token(token: str, username: str, tipo: str, expira_em: int):
     df = pd.concat([df, nova_linha], ignore_index=True)
     df.to_csv(ARQUIVO, index=False)
 
+
 def ler_todos():
     return get_cache("tokens", ARQUIVO)
+
 
 def revogar_token(token: str):
     df = pd.read_csv(ARQUIVO)
     df.loc[df["token"] == token, "revogado"] = True
     df.to_csv(ARQUIVO, index=False)
+
 
 def token_valido(token: str) -> bool:
     df = pd.read_csv(ARQUIVO)

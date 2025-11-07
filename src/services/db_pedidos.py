@@ -5,11 +5,6 @@ from metodos.cache import get_cache
 
 ARQUIVO = Path("data/pedidos.csv")
 
-def inicializar_pedidos():
-    if not ARQUIVO.exists():
-        df = pd.DataFrame(columns=["id", "cliente_id", "valor", "data"])
-        df.to_csv(ARQUIVO, index=False)
-        print("🆕 Arquivo de pedidos criado.")
 
 def ler_pedidos():
     return get_cache("pedidos", ARQUIVO)
@@ -34,7 +29,7 @@ def adicionar_pedido(cliente_id: int, valor: float, data: str):
 
     pedidos = pd.concat([pedidos, novo], ignore_index=True)
     salvar_pedidos(pedidos)
-    print(f"✅ Pedido criado para cliente ID {cliente_id} no valor de R$ {valor:.2f}")
+    print(f"Pedido criado para cliente ID {cliente_id} no valor de R$ {valor:.2f}")
 
 def listar_pedidos_com_clientes():
     pedidos = ler_pedidos()

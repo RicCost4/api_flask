@@ -1,6 +1,7 @@
-from flasgger import Swagger
+from flasgger import Swagger # type: ignore
 
 from metodos.versao_projeto import obter_versao_atual_projeto
+
 
 def configurar_swagger(app):
     swagger_template = {

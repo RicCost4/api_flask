@@ -1,5 +1,5 @@
 import jwt
-import datetime
+from datetime import datetime, timedelta, timezone
 import time
 from functools import wraps
 from flask import request, jsonify # type: ignore
@@ -15,10 +15,11 @@ CHAVE_SECRETA = os.getenv("APP_SECRET_KEY", "default-secret")
 ACCESS_TOKEN_TTL = 60 * 60      # 60 minutos
 REFRESH_TOKEN_TTL = 60 * 60 * 24 * 7  # 7 dias
 
+
 def gerar_tokens(username: str, tipo: str):
-    agora = datetime.datetime.utcnow()
-    exp_access = agora + datetime.timedelta(seconds=ACCESS_TOKEN_TTL)
-    exp_refresh = agora + datetime.timedelta(seconds=REFRESH_TOKEN_TTL)
+    agora = datetime.now(timezone.utc)
+    exp_access = agora + timedelta(seconds=ACCESS_TOKEN_TTL)
+    exp_refresh = agora + timedelta(seconds=REFRESH_TOKEN_TTL)
 
     access_payload = {
         "username": username,
@@ -41,6 +42,7 @@ def gerar_tokens(username: str, tipo: str):
 
     return access_token, refresh_token
 
+
 def autenticar_token(f):
     @wraps(f)
     def decorador(*args, **kwargs):
@@ -57,6 +59,7 @@ def autenticar_token(f):
             return jsonify({"erro": "Token inválido"}), 401
         return f(*args, **kwargs)
     return decorador
+
 
 def renovar_token(refresh_token: str):
     try:
