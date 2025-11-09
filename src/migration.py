@@ -2,8 +2,7 @@ from pathlib import Path
 
 from migrations import MIGRATIONS
 
-DATA_DIR = Path("config")
-VERSAO_ARQUIVO = DATA_DIR / "schema_version.txt"
+VERSAO_ARQUIVO = Path("../data/schema_version.txt")
 
 # Versão atual do schema, mudar a cada nova migração colocada
 VERSAO_ATUAL = 5
@@ -20,7 +19,6 @@ def salvar_versao(versao: int):
 
 
 def inicializar_csv():
-    DATA_DIR.mkdir(exist_ok=True)
     versao_atual = obter_versao_atual()
 
     print(f"Versão atual do schema: {versao_atual}")
