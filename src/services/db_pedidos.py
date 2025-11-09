@@ -3,7 +3,7 @@ from pathlib import Path
 from services.db_clientes import ler_todos as ler_clientes
 from metodos.cache import get_cache
 
-ARQUIVO = Path("data/pedidos.csv")
+ARQUIVO = Path("../data/pedidos.csv")
 
 
 def ler_pedidos():

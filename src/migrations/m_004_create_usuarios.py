@@ -7,7 +7,7 @@ from services.db_usuarios import criar_usuario
 
 
 def migration_004():
-    caminho = Path("data/usuarios.csv")
+    caminho = Path("../data/usuarios.csv")
     if not caminho.exists():
         df = pd.DataFrame(columns=["id", "username", "senha", "tipo"])
         df.to_csv(caminho, index=False)

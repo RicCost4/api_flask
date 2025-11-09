@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib
 from metodos.cache import get_cache
 
-ARQUIVO = Path("data/usuarios.csv")
+ARQUIVO = Path("../data/usuarios.csv")
 
 
 def hash_senha(senha: str) -> str:

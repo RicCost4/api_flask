@@ -69,6 +69,6 @@ def filtrar_clientes(cidade=None, idade_min=None, idade_max=None):
 
 def exportar_excel():
     df = ler_todos()
-    caminho = Path("data/clientes_exportados.xlsx")
+    caminho = Path("media/clientes_exportados.xlsx")
     df.to_excel(caminho, index=False)
     return str(caminho)

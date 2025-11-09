@@ -1,6 +1,6 @@
 from pathlib import Path
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("config")
 VERSAO_ARQUIVO = DATA_DIR / "projeto_version.txt"
 
 

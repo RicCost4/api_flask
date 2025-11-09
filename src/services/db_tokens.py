@@ -3,7 +3,7 @@ from pathlib import Path
 import time
 from metodos.cache import get_cache
 
-ARQUIVO = Path("data/tokens.csv")
+ARQUIVO = Path("../datatokens.csv")
 
 def inicializar_tokens():
     if not ARQUIVO.exists():

@@ -3,7 +3,7 @@ from fpdf import FPDF # type: ignore
 from services.db_pedidos import listar_pedidos_com_clientes
 
 
-def gerar_relatorio_csv(caminho="data/relatorio_pedidos.csv"):
+def gerar_relatorio_csv(caminho="../data/relatorio_pedidos.csv"):
     dados = listar_pedidos_com_clientes()
     if not dados:
         return None
@@ -12,7 +12,7 @@ def gerar_relatorio_csv(caminho="data/relatorio_pedidos.csv"):
     return caminho
 
 
-def gerar_relatorio_pdf(caminho="data/relatorio_pedidos.pdf"):
+def gerar_relatorio_pdf(caminho="../data/relatorio_pedidos.pdf"):
     dados = listar_pedidos_com_clientes()
     if not dados:
         return None

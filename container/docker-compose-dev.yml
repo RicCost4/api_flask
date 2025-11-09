@@ -1,0 +1,18 @@
+services:
+  api-flask-csv:
+    image: python:3.12-slim
+    container_name: api-flask-csv-container
+    tty: true
+    stdin_open: true
+    env_file:
+      - ../src/.env
+    ports:
+      - "8080:5000"
+      - "5678:5678"
+    volumes:
+      - ../:/app
+      - ../data:/app/data
+      - ../src/media:/app/src/media
+    working_dir: /app/src
+    entrypoint: ["/app/scripts/entrypoint.sh"]
+    restart: unless-stopped

@@ -2,7 +2,7 @@ from pathlib import Path
 
 from migrations import MIGRATIONS
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("config")
 VERSAO_ARQUIVO = DATA_DIR / "schema_version.txt"
 
 # Versão atual do schema, mudar a cada nova migração colocada

@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def migration_005():
-    caminho = Path("data/usuarios.csv")
+    caminho = Path("../data/datatokens.csv")
 
     if not caminho.exists():
         df = pd.DataFrame(columns=["token", "username", "tipo", "expira_em", "revogado"])

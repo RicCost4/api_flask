@@ -6,12 +6,6 @@ echo "Atulizando o sistema..."
 apt-get update
 apt-get upgrade -y
 
-# echo "Instalando dependências..."
-# apt-get install -y \
-#     gcc \
-#     git \
-#     libpq-dev
-
 echo "Removendo arquivos temporários..."
 rm -rf /var/lib/apt/lists/*
 
