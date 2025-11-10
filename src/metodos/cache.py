@@ -5,6 +5,7 @@ import time
 CACHE = {}
 CACHE_TTL = 5  # segundos
 
+
 def get_cache(chave: str, caminho: Path) -> pd.DataFrame:
     """Retorna um DataFrame a partir do cache ou do arquivo CSV."""
     agora = time.time()

@@ -1,5 +1,5 @@
-from flask import Flask # type: ignore
-from dotenv import load_dotenv # type: ignore
+from flask import Flask  # type: ignore
+from dotenv import load_dotenv  # type: ignore
 from flasgger import swag_from  # type: ignore
 import os
 
