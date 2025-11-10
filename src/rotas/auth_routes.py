@@ -1,5 +1,5 @@
-from flask import Blueprint, request, jsonify  # type: ignore
-from flasgger import swag_from  # type: ignore
+from flask import Blueprint, request, jsonify   # type: ignore
+from flasgger import swag_from   # type: ignore
 
 from metodos.auth import gerar_tokens, renovar_token
 from services.db_usuarios import validar_usuario
@@ -107,7 +107,7 @@ def login():
         }
       }
     }
-})        
+})
 def refresh():
     dados = request.json
     token = dados.get("refresh_token")

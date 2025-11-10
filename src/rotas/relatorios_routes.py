@@ -13,7 +13,7 @@ relatorios_bp = Blueprint("relatorios", __name__, url_prefix="/relatorios")
     "tags": ["Relatórios"],
     "summary": "Gerar relatório de pedidos",
     "description": """
-    Gera um relatório de pedidos no formato CSV (padrão) ou PDF.  
+    Gera um relatório de pedidos no formato CSV (padrão) ou PDF.
     É necessário estar autenticado para acessar esta rota.
     """,
     "parameters": [

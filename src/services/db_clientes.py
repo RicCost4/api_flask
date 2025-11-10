@@ -1,4 +1,4 @@
-import pandas as pd # type: ignore
+import pandas as pd  # type: ignore
 from pathlib import Path
 from metodos.cache import get_cache
 

@@ -2,8 +2,8 @@ import jwt
 from datetime import datetime, timedelta, timezone
 import time
 from functools import wraps
-from flask import request, jsonify # type: ignore
-from dotenv import load_dotenv # type: ignore
+from flask import request, jsonify  # type: ignore
+from dotenv import load_dotenv  # type: ignore
 import os
 
 from services.db_tokens import salvar_token, token_valido, revogar_token
@@ -12,7 +12,7 @@ load_dotenv()
 
 CHAVE_SECRETA = os.getenv("APP_SECRET_KEY", "default-secret")
 
-ACCESS_TOKEN_TTL = 60 * 60      # 60 minutos
+ACCESS_TOKEN_TTL = 60 * 60  # 60 minutos
 REFRESH_TOKEN_TTL = 60 * 60 * 24 * 7  # 7 dias
 
 

@@ -14,7 +14,7 @@ usuarios_bp = Blueprint("usuarios", __name__, url_prefix="/usuarios")
     "tags": ["Usuários"],
     "summary": "Criar novo usuário (somente administradores internos)",
     "description": """
-    Cria um novo usuário no sistema.  
+    Cria um novo usuário no sistema.
     Apenas usuários **internos** (administradores) podem executar esta operação.
     """,
     "security": [{"BearerAuth": []}],
@@ -87,7 +87,7 @@ def criar_usuario():
     "tags": ["Usuários"],
     "summary": "Alterar senha do usuário logado",
     "description": """
-    Permite que o usuário autenticado altere sua própria senha.  
+    Permite que o usuário autenticado altere sua própria senha.
     É necessário fornecer a senha atual e a nova senha.
     """,
     "security": [{"BearerAuth": []}],

@@ -1,4 +1,4 @@
-import pandas as pd # type: ignore
+import pandas as pd  # type: ignore
 from pathlib import Path
 from services.db_clientes import ler_todos as ler_clientes
 from metodos.cache import get_cache
@@ -9,8 +9,10 @@ ARQUIVO = Path("../data/pedidos.csv")
 def ler_pedidos():
     return get_cache("pedidos", ARQUIVO)
 
+
 def salvar_pedidos(df):
     df.to_csv(ARQUIVO, index=False)
+
 
 def adicionar_pedido(cliente_id: int, valor: float, data: str):
     clientes = ler_clientes()
@@ -31,6 +33,7 @@ def adicionar_pedido(cliente_id: int, valor: float, data: str):
     salvar_pedidos(pedidos)
     print(f"Pedido criado para cliente ID {cliente_id} no valor de R$ {valor:.2f}")
 
+
 def listar_pedidos_com_clientes():
     pedidos = ler_pedidos()
     clientes = ler_clientes()
@@ -43,6 +46,7 @@ def listar_pedidos_com_clientes():
     # Selecionando colunas mais amigáveis
     df = df[["id_pedido", "cliente_id", "nome", "valor", "data", "cidade"]]
     return df.to_dict(orient="records")
+
 
 def listar_pedidos_por_cliente(cliente_id: int):
     pedidos = ler_pedidos()

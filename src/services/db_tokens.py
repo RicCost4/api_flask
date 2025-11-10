@@ -1,9 +1,10 @@
-import pandas as pd # type: ignore
+import pandas as pd  # type: ignore
 from pathlib import Path
 import time
 from metodos.cache import get_cache
 
-ARQUIVO = Path("../datatokens.csv")
+ARQUIVO = Path("../data/tokens.csv")
+
 
 def inicializar_tokens():
     if not ARQUIVO.exists():

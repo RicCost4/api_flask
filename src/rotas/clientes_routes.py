@@ -104,8 +104,8 @@ def get_cliente(id_cliente):
     "parameters": [
         {"name": "id_cliente", "in": "path", "type": "integer", "required": True},
         {
-            "name": "body", 
-            "in": "body", 
+            "name": "body",
+            "in": "body",
             "schema": {
                 "type": "object",
                 "properties": {

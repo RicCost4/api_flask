@@ -1,5 +1,5 @@
-import pandas as pd # type: ignore
-from fpdf import FPDF # type: ignore
+import pandas as pd  # type: ignore
+from fpdf import FPDF  # type: ignore
 from services.db_pedidos import listar_pedidos_com_clientes
 
 

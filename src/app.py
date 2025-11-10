@@ -20,15 +20,14 @@ app = Flask(__name__)
 app.secret_key = os.getenv("APP_SECRET_KEY", "default-secret")
 
 
-# @app.before_serving
 def setup_inicial():
-  print("Inicializando dados do sistema...")
-  inicializar_csv()
-  print("Inicialização concluída!")
+    print("Inicializando dados do sistema...")
+    inicializar_csv()
+    print("Inicialização concluída!")
 
 
 setup_inicial()
-# Inicializa o Swagger
+#  Inicializa o Swagger
 configurar_swagger(app)
 
 
@@ -41,7 +40,7 @@ configurar_swagger(app)
   "tags": ["Sistema"],
   "summary": "Status da API",
   "description": "Retorna o status do projeto e a versão.",
-  "responses": { 
+  "responses": {
     200: {
       "description": "Retorna o status atual da API",
       "schema": {
@@ -56,10 +55,10 @@ configurar_swagger(app)
   }
 })
 def status():
-  return {"status": "ok", "mensagem": "Servidor rodando!", "versao": obter_versao_atual_projeto()}, 200
+    return {"status": "ok", "mensagem": "Servidor rodando!", "versao": obter_versao_atual_projeto()}, 200
 
 
-# Registrar as rotas
+#  Registrar as rotas
 app.register_blueprint(auth_bp)
 app.register_blueprint(usuarios_bp)
 app.register_blueprint(clientes_bp)

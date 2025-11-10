@@ -1,2 +1,2 @@
-def mensagem(msn:str):
+def mensagem(msn: str):
     return msn

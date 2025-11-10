@@ -1,4 +1,4 @@
-from flasgger import Swagger # type: ignore
+from flasgger import Swagger  # type: ignore
 
 from metodos.versao_projeto import obter_versao_atual_projeto
 

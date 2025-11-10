@@ -1,4 +1,4 @@
-import pandas as pd # type: ignore
+import pandas as pd  # type: ignore
 from pathlib import Path
 import hashlib
 from metodos.cache import get_cache
@@ -10,7 +10,7 @@ def hash_senha(senha: str) -> str:
     return hashlib.sha256(senha.encode()).hexdigest()
 
 
-def criar_usuario(username: str, senha: str, tipo="interno"):
+def criar_usuario(username: str, senha: str, tipo: str = "interno"):
     df = ler_todos()
     if username in df["username"].values:
         raise ValueError("Usuário já existe!")
@@ -30,7 +30,8 @@ def criar_usuario(username: str, senha: str, tipo="interno"):
 def ler_todos():
     return get_cache("usuarios", ARQUIVO)
 
-def validar_usuario(username: str, senha: str, tipo="interno") -> bool:
+
+def validar_usuario(username: str, senha: str, tipo: str = "interno") -> bool:
     df = ler_todos()
     if df.empty:
         return False
